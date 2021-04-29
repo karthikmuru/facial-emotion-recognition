@@ -13,6 +13,7 @@ def _setup_parser():
 
   trainer_parser = pl.Trainer.add_argparse_args(parser)
   trainer_parser._action_groups[1].title = "Trainer Args"
+  parser = argparse.ArgumentParser(add_help=False, parents=[trainer_parser])
 
   data_group = parser.add_argument_group("Data Args")
   KDEF.add_to_argparse(data_group)
@@ -26,7 +27,7 @@ def main():
   args = parser.parse_args()
 
   data = KDEF(args)
-  model = InceptionV3FER(args)
+  model = InceptionV3FER()
 
   logger = TensorBoardLogger('training/logs')
   model_checkpoint_callback = pl.callbacks.ModelCheckpoint(

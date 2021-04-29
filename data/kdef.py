@@ -20,7 +20,7 @@ class KDEF(BaseDataModule):
 
   def setup(self, stage = None):
     data = datasets.ImageFolder(self.data_dir, transform=self.transform)
-    test_set_size = int( len(data) * self.split_percentage / 100 )
+    test_set_size = int( len(data) * self.train_val_split / 100 )
 
     self.data_train, self.data_val = torch.utils.data.random_split(data, [test_set_size, len(data) - test_set_size])
 

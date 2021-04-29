@@ -3,6 +3,8 @@ import torch.nn as nn
 import torch.optim as optim
 import pytorch_lightning as pl
 from sklearn.metrics import accuracy_score
+from torchvision import datasets, models, transforms
+
 
 class InceptionV3FER(pl.LightningModule):
   

@@ -1,5 +1,5 @@
 import pytorch_lightning as pl
-from torch.utils.data import Subset, Dataset
+from torch.utils.data import Subset, Dataset, DataLoader
 import argparse
 
 
@@ -16,8 +16,11 @@ class BaseDataModule(pl.LightningDataModule):
     self.batch_size = self.args.get("batch_size", BATCH_SIZE)
     self.num_workers = self.args.get("num_workers", NUM_WORKERS)
     self.train_val_split = self.args.get("train_val_split", TRAIN_VAL_SPLIT)
-    self.data_dir = self.args.get("train_val_split", TRAIN_VAL_SPLIT)
+    self.data_dir = self.args["data_dir"]
     self.on_gpu = isinstance(self.args.get("gpus", None), (str, int))
+
+    self.data_train = None
+    self.data_val = None
 
   @staticmethod
   def add_to_argparse(parser):
@@ -28,7 +31,7 @@ class BaseDataModule(pl.LightningDataModule):
       "--num_workers", type=int, default=NUM_WORKERS, help="Number of additional processes to load data."
     )
     parser.add_argument(
-      "--train_val_split", type=str, default=TRAIN_VAL_SPLIT, help="Split percentage between train and val set."
+      "--train_val_split", type=int, default=TRAIN_VAL_SPLIT, help="Split percentage between train and val set."
     )
     parser.add_argument(
       "--data_dir", type=str, help="Path to the data folder.", required=True
