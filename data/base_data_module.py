@@ -1,3 +1,5 @@
+# Code by Karthik Murugesan (Github: @karthikmuru)
+
 import pytorch_lightning as pl
 from torch.utils.data import Subset, Dataset, DataLoader
 import argparse

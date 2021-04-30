@@ -1,3 +1,5 @@
+# Code by Karthik Murugesan (Github: @karthikmuru)
+
 import torch
 from torchvision import datasets, models, transforms
 import argparse

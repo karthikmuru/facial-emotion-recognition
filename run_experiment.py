@@ -1,3 +1,5 @@
+# Code by Karthik Murugesan (Github: @karthikmuru)
+
 import argparse
 import torch
 
@@ -12,6 +14,9 @@ def _setup_parser():
   parser = argparse.ArgumentParser(add_help=False)
 
   trainer_parser = pl.Trainer.add_argparse_args(parser)
+  trainer_parser.add_argument(
+      "--progress_bar_refresh_rate", type=int, default=20, help="Progress bar refresh rate."
+  )
   trainer_parser._action_groups[1].title = "Trainer Args"
   parser = argparse.ArgumentParser(add_help=False, parents=[trainer_parser])
 

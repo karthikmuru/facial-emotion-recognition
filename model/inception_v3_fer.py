@@ -1,3 +1,5 @@
+# Code by Karthik Murugesan (Github: @karthikmuru)
+
 import torch
 import torch.nn as nn
 import torch.optim as optim
