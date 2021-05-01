@@ -46,7 +46,7 @@ def main():
   print(data)
   
   args.weights_summary = "full"
-  trainer = pl.Trainer.from_argparse_args(args, callbacks=callbacks, logger=logger)
+  trainer = pl.Trainer.from_argparse_args(args, callbacks=[model_checkpoint_callback], logger=logger)
   trainer.fit(model, data)
 
 if __name__ == "__main__":
