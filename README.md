@@ -12,7 +12,7 @@ Karolinska Directed Emotional Faces (KDEF) : https://www.kdef.se/
 ```
 $ python3 -m venv FER_env
 
-source FER_env/bin/activate
+$ source FER_env/bin/activate
 ```
 
 2.  Install requirements
