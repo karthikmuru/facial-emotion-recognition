@@ -1,6 +1,6 @@
 # Facial Emotion Recognition
 
-Project demonstrating the use of transfer learning for the application of facial emotion recognition. The model has been trained based on the ImageNet pretrained Inception V3 model. This project is implemented using  `pytorch-lightning`.
+Project demonstrating the use of transfer learning for the application of facial emotion recognition. The model has been trained based on the ImageNet pretrained Inception V3 model. This project is implemented using `pytorch` and `pytorch-lightning`.
 
 ## Data
 
