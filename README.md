@@ -10,23 +10,23 @@ Karolinska Directed Emotional Faces (KDEF) : https://www.kdef.se/
 
 1.  Create and activate virtual environment
 ```
-python3 -m venv FER_env
+$ python3 -m venv FER_env
 
 source FER_env/bin/activate
 ```
 
 2.  Install requirements
 ```
-pip3 install -r requirements.txt
+$ pip3 install -r requirements.txt
 ```
 
 3. Preprocess the data:
 
-Download the original dataset from the link mentioned above and preprocess it using the preprocessing Jupyter notebook in the notebooks folder.
+Download the original dataset from the link mentioned above and preprocess it using the [preprocessing notebook](https://github.com/karthikmuru/facial_emotion_recognition/blob/master/notebooks/preprocessing.ipynb).
 
 4. Train the model
 ```
-python3 facial-emotion-recognition/run_experiment.py \
+$ python3 facial-emotion-recognition/run_experiment.py \
   --batch_size=32 \
   --train_val_split=80 \
   --gpus=-1 \
@@ -36,4 +36,18 @@ python3 facial-emotion-recognition/run_experiment.py \
   --max_epochs=20
 ```
 
-The model weights from the epochs with the top 3 least validation losses will be saved in the `traning/logs` folder.
+The model weights from the epochs with the 3 least validation losses will be saved in the `traning/logs` folder. <br>
+**Note**: GPU is recommended for training.
+
+Use this command to get the description of all the training params.
+```
+python3 facial-emotion-recognition/run_experiment.py --help
+```
+
+5. Inference
+
+Detect the emotion in real time through your webcam. Run the following command along with the path to the checkpoint.
+
+```
+$ python3 face_tracking.py --checkpoint_path='./checkpoints/epoch=013-val_loss=0.385.ckpt'
+```
