@@ -41,7 +41,7 @@ The model weights from the epochs with the 3 least validation losses will be sav
 
 Use this command to get the description of all the training params.
 ```
-python3 facial-emotion-recognition/run_experiment.py --help
+$ python3 facial-emotion-recognition/run_experiment.py --help
 ```
 
 5. Inference
